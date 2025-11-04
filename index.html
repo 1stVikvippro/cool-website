@@ -1,27 +1,27 @@
 <body>
   <form id="search"><input id="url" type="text" class="search-input search" placeholder="Search the web or enter URL"></form>
   <iframe id="iframe" width="100%" height="100%"></iframe>
-  <script src="/tinyjet/scramjet.all.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/gh/soap-phia/tinyjet@latest/tinyjet/scramjet.all.js" defer></script>
   <script type="module" defer>
     import * as BareMux from "https://cdn.jsdelivr.net/npm/@mercuryworkshop/bare-mux/dist/index.mjs";
     const { ScramjetController } = $scramjetLoadController();
 
     const scramjet = new ScramjetController({ 
       files: { 
-        wasm: "/tinyjet/scramjet.wasm.wasm", 
-        all: "/tinyjet/scramjet.all.js", 
-        sync: "/tinyjet/scramjet.sync.js" 
+        wasm: "https://cdn.jsdelivr.net/gh/soap-phia/tinyjet@latest/tinyjet/scramjet.wasm.wasm", 
+        all: "https://cdn.jsdelivr.net/gh/soap-phia/tinyjet@latest/tinyjet/scramjet.all.js", 
+        sync: "https://cdn.jsdelivr.net/gh/soap-phia/tinyjet@latest/tinyjet/scramjet.sync.js" 
       } 
     });
 
     try {
       scramjet.init();
-      navigator.serviceWorker.register("./sw.js");
+      navigator.serviceWorker.register("https://cdn.jsdelivr.net/gh/soap-phia/tinyjet@latest/sw.js");
     } catch (e) { 
       console.error("scramjet failed to initialize;", e); 
     }
 
-    const connection = new BareMux.BareMuxConnection("/bareworker.js");
+    const connection = new BareMux.BareMuxConnection("https://cdn.jsdelivr.net/gh/soap-phia/tinyjet@latest/bareworker.js");
 
     const wispUrl = "wss://gointospace.app/wisp/";
 
