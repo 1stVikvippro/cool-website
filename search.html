@@ -48,11 +48,11 @@
   const connection = new BareMux.BareMuxConnection("/bareworker.js");
 
   async function initTransport() {
-    await connection.setTransport(
-      "https://cdn.jsdelivr.net/npm/@mercuryworkshop/epoxy-transport/dist/index.mjs",
-      [{ wisp: "wss://gointospace.app/wisp/" }]
-    );
-  }
+await connection.setTransport(
+  "https://cdn.jsdelivr.net/npm/@mercuryworkshop/libcurl-transport/dist/index.mjs",
+  [{ websocket: "wss://gointospace.app/wisp/" }]
+);
+
 
   function normalizeUrl(input) {
     try {
